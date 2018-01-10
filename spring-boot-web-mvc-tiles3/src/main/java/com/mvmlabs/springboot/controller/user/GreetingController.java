@@ -1,4 +1,4 @@
-package com.mvmlabs.springboot.web.user;
+package com.mvmlabs.springboot.controller.user;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

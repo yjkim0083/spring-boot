@@ -6,18 +6,18 @@
 
 	<!-- Templates -->
 	
-	<definition name="layout.admin" template="/WEB-INF/tiles/layout/basic.jsp">
+	<definition name="layout.admin" template="/WEB-INF/tiles/layout/admin/layout.jsp">
 		<put-attribute name="title" value="## ADMIN ##" />
-		<put-attribute name="header" value="/WEB-INF/tiles/view/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/layout/admin/header.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/tiles/view/footer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/layout/admin/footer.jsp" />
 	</definition>
 	
-	<definition name="layout.user" template="/WEB-INF/tiles/layout/basic.jsp">
+	<definition name="layout.user" template="/WEB-INF/tiles/layout/user/layout.jsp">
 		<put-attribute name="title" value="## USER ##" />
-		<put-attribute name="header" value="/WEB-INF/tiles/view/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/layout/user/header.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/tiles/view/footer.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/layout/user/footer.jsp" />
 	</definition>
 	
 	<!-- Pages -->	
@@ -25,9 +25,11 @@
 	<definition name="admin.homepage" extends="layout.admin">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/home/home.jsp" />
 	</definition>
-	
-	<definition name="admin.greeting" extends="layout.admin">
-		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/home/greeting.jsp" />
+	<definition name="admin.department" extends="layout.admin">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/department/department.jsp" />
+	</definition>
+	<definition name="admin.user" extends="layout.admin">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/user/user.jsp" />
 	</definition>
 	
 	<!-- user -->
@@ -35,8 +37,6 @@
 		<put-attribute name="body" value="/WEB-INF/tiles/view/user/home/home.jsp" />
 	</definition>
 	
-	<definition name="user.greeting" extends="layout.user">
-		<put-attribute name="body" value="/WEB-INF/tiles/view/user/home/greeting.jsp" />
-	</definition>
+	
 	
 </tiles-definitions>

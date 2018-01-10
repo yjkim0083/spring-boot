@@ -1,4 +1,3 @@
 <div>
-	<h1>ADMIN</h1>
-	Main content would go here. Lets try.
+	<h1>/admin/home</h1>
 </div>
