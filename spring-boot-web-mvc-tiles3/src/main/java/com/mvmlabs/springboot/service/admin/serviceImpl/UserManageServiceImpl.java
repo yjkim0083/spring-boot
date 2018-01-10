@@ -19,4 +19,24 @@ public class UserManageServiceImpl implements UserManageService {
 	public List<UserManage> selectUserList() throws Exception {
 		return userManageDAO.selectUserList();
 	}
+
+	@Override
+	public void insertUser(UserManage userManage) throws Exception {
+		userManageDAO.insertUser(userManage);
+	}
+
+	@Override
+	public UserManage selectUser(String userId) throws Exception {
+		return userManageDAO.selectUser(userId);
+	}
+
+	@Override
+	public void updateUser(UserManage userManage) throws Exception {
+		userManageDAO.updateUser(userManage);
+	}
+
+	@Override
+	public void deleteUser(String userId) throws Exception {
+		userManageDAO.deleteUser(userId);
+	}
 }

@@ -17,4 +17,20 @@ public class UserManageDAO {
 	public List<UserManage> selectUserList() throws Exception {
 		return sqlSession.selectList("userManageMapper.selectUserList");
 	}
+
+	public void insertUser(UserManage userManage) throws Exception {
+		sqlSession.insert("userManageMapper.insertUser", userManage);
+	}
+
+	public UserManage selectUser(String userId) throws Exception {
+		return sqlSession.selectOne("userManageMapper.selectUser", userId);
+	}
+
+	public void updateUser(UserManage userManage) throws Exception {
+		sqlSession.insert("userManageMapper.updateUser", userManage);
+	}
+	
+	public void deleteUser(String userId) throws Exception {
+		sqlSession.delete("userManageMapper.deleteUser", userId);
+	}
 }

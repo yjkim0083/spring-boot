@@ -31,6 +31,12 @@
 	<definition name="admin.user" extends="layout.admin">
 		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/user/user.jsp" />
 	</definition>
+	<definition name="admin.user.add" extends="layout.admin">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/user/addUser.jsp" />
+	</definition>
+	<definition name="admin.user.edit" extends="layout.admin">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/admin/user/editUser.jsp" />
+	</definition>
 	
 	<!-- user -->
 	<definition name="user.homepage" extends="layout.user">

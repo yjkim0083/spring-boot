@@ -13,4 +13,36 @@
     <select id="selectUserList" resultMap="userManage">
         select * from mariadb_study.TB_USER;
     </select>
+    
+    <insert id="insertUser">
+    	insert into 
+    		mariadb_study.TB_USER(userid, username, email, password, create_time) 
+    		values (
+    			#{userId},
+    			#{userName},
+    			#{email},
+    			'ppp',
+    			now()
+    		);
+    </insert>
+    
+    <select id="selectUser" resultMap="userManage" parameterType="string">
+    	select * from mariadb_study.TB_USER 
+    	where userId = #{userId};
+    </select>
+    
+    <update id="updateUser">
+    	update 
+    		mariadb_study.TB_USER
+    	set
+    		username = #{userName},
+    		email = #{email}
+    	where
+    		userid = #{userId}; 
+    </update>
+    
+    <delete id="deleteUser">
+    	delete from mariadb_study.TB_USER
+    	where userid = #{userId};
+    </delete>
 </mapper>
