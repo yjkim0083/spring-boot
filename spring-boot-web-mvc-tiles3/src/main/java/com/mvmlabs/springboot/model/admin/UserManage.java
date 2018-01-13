@@ -9,6 +9,7 @@ public class UserManage implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private String rowNum;
 	private String userId;
 	private String userName;
 	private String email;
@@ -16,6 +17,13 @@ public class UserManage implements Serializable {
 	private String passwordConfirm;
 	private String createTime;
 	
+	
+	public String getRowNum() {
+		return rowNum;
+	}
+	public void setRowNum(String rowNum) {
+		this.rowNum = rowNum;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -54,7 +62,9 @@ public class UserManage implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "UserManage [userId=" + userId + ", userName=" + userName + ", email=" + email + ", password=" + password
-				+ ", passwordConfirm=" + passwordConfirm + ", createTime=" + createTime + "]";
+		return "UserManage [rowNum=" + rowNum + ", userId=" + userId + ", userName=" + userName + ", email=" + email
+				+ ", password=" + password + ", passwordConfirm=" + passwordConfirm + ", createTime=" + createTime
+				+ "]";
 	}
+	
 }

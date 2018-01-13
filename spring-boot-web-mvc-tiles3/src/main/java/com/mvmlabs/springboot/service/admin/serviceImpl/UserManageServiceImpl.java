@@ -1,6 +1,7 @@
 package com.mvmlabs.springboot.service.admin.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,13 @@ public class UserManageServiceImpl implements UserManageService {
 	private UserManageDAO userManageDAO;
 	
 	@Override
-	public List<UserManage> selectUserList() throws Exception {
-		return userManageDAO.selectUserList();
+	public int selectUserTotalCnt(Map<String, Object> param) throws Exception {
+		return userManageDAO.selectUserTotalCnt(param);
+	}
+	
+	@Override
+	public List<UserManage> selectUserList(Map<String,Object> param) throws Exception {
+		return userManageDAO.selectUserList(param);
 	}
 
 	@Override
@@ -39,4 +45,6 @@ public class UserManageServiceImpl implements UserManageService {
 	public void deleteUser(String userId) throws Exception {
 		userManageDAO.deleteUser(userId);
 	}
+
+	
 }

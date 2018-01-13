@@ -12,6 +12,7 @@ th, td {
 	
 	<table id="userManageTable" border="1">
 		<tr>
+			<th>No</th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>이메일</th>
@@ -26,8 +27,9 @@ th, td {
 			</tr>
 		</c:forEach> --%>
 	</table>
-	
 </div>
+<div class="pagination"></div>
+
 <div>
 	<button id="btnAddUser" style="width:100px;height:20px;">추가</button>
 </div>

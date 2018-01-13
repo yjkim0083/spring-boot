@@ -1,6 +1,8 @@
 package com.mvmlabs.springboot.controller.admin;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mvmlabs.springboot.common.util.PagingUtil;
 import com.mvmlabs.springboot.model.admin.UserManage;
 import com.mvmlabs.springboot.service.admin.UserManageService;
 
@@ -42,8 +46,27 @@ public class UserManageController {
 	 */
 	@RequestMapping(value = "/user/list", method=RequestMethod.GET)
 	@ResponseBody
-	public List<UserManage> getUserList() throws Exception {
-		return userManageService.selectUserList();
+	public Map<String,Object> getUserList(@RequestParam Map<String,Object> param) throws Exception {
+		
+		Map<String,Object> result = new HashMap<String,Object>();
+		
+		System.out.println("param : " + param.toString());
+		
+		param = PagingUtil.putPagingParam(param);
+
+		int totalCnt = 0;
+		int searchCnt = 0;
+		List<UserManage> list = null;
+
+		totalCnt = userManageService.selectUserTotalCnt(param);
+		list = userManageService.selectUserList(param);
+		searchCnt = list.size();
+
+		result.put("totalCnt", totalCnt);
+		result.put("searchCnt", searchCnt);
+		result.put("list", list);
+
+		return result;
 	}
 	
 	/**

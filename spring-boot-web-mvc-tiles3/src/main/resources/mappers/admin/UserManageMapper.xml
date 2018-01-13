@@ -3,15 +3,40 @@
 <mapper namespace="userManageMapper">
     
     <resultMap id="userManage" type="com.mvmlabs.springboot.model.admin.UserManage">
+    	<result property="rowNum" column="rownum" javaType="java.lang.String"/>
         <result property="userId" column="userid" javaType="java.lang.String"/>
         <result property="userName" column="username" javaType="java.lang.String"/>
         <result property="email" column="email" javaType="java.lang.String"/>
         <result property="password" column="password" javaType="java.lang.String"/>
         <result property="createTime" column="create_time" javaType="java.lang.String"/>
     </resultMap>
+    
+    <sql id="selectUser">
+    	select * from mariadb_study.TB_USER
+    </sql>
+    
+    <!-- resultMap이 아닌 다른 타입으로 반환할 경우에는 resultType을 사용 -->
+    <select id="selectUserTotalCnt" resultType="int">
+        select
+        	count(*)
+        from
+       	<!-- 위에서 선언한 sql id를 include -->
+       	(<include refid="selectUser" />) DAT;
+    </select>
    
     <select id="selectUserList" resultMap="userManage">
-        select * from mariadb_study.TB_USER;
+		SELECT
+			*
+		FROM
+		(
+			SELECT
+					DAT.*, @NO := @NO + 1 AS rownum
+			FROM
+			( <include refid="selectUser" /> ) DAT,
+			( SELECT @NO := 0 ) RN
+		) TOT
+		WHERE
+			TOT.rownum BETWEEN #{startRow} AND #{endRow};
     </select>
     
     <insert id="insertUser">
