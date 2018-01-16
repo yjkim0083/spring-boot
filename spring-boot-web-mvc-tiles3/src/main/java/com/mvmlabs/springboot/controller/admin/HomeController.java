@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mvmlabs.springboot.youtube.MyUploads;
+
 /**
  * Controller that demonstrates tiles mapping, reguest parameters and path variables.
  * 
@@ -19,7 +21,14 @@ public class HomeController {
 
     @RequestMapping(value = "/home", method=RequestMethod.GET)
 	public String home() {
+    	
+    		// ===================================================
+    		// youtube api test
+    		MyUploads uploads = new MyUploads();
+    		uploads.getMyVideo();
+		// ===================================================    	
 	    return "admin.homepage";
+	    
 	}
 	
 //	@RequestMapping(value = "/greet", method=RequestMethod.GET)
@@ -33,6 +42,4 @@ public class HomeController {
 //		log.info("Controller has been invoked with Path Variable name = '" + name + "'.");
 //		return new ModelAndView("admin.greeting", "name", name);
 //	}
-	
-	
 }
