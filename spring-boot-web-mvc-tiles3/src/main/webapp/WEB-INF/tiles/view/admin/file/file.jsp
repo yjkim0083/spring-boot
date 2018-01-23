@@ -3,7 +3,7 @@
 
 <h1>Spring Boot file upload example</h1>
 
-<form method="POST" id="uploadForm" action="" enctype="multipart/form-data">
+<form id="uploadForm" action="">
 	유저명 : <input type="text" id="userName" name="userName" /><br/><br/>
     파일선택 : <input type="file" name="file" /><br/><br/>
     <button type="submit" id="btn_save">Save</button>
